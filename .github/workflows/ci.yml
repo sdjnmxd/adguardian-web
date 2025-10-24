@@ -1,0 +1,54 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, develop, feature/*, hotfix/* ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  docker-build-test:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Setup Docker Buildx
+      uses: docker/setup-buildx-action@v3
+      
+    - name: Build Docker image (test only)
+      run: |
+        docker build -t adguardian-web:test .
+        
+    - name: Test Docker image
+      run: |
+        # 测试镜像是否能正常启动
+        docker run --rm \
+          -e ADGUARD_IP=192.168.1.1 \
+          -e ADGUARD_PORT=80 \
+          -e ADGUARD_USERNAME=admin \
+          -e ADGUARD_PASSWORD=test \
+          adguardian-web:test &
+        
+        # 等待服务启动
+        sleep 10
+        
+        # 检查服务是否响应
+        curl -f http://localhost:7681/ || exit 1
+        
+        # 清理
+        docker stop $(docker ps -q --filter ancestor=adguardian-web:test) || true
+        
+    - name: Security scan
+      run: |
+        # 使用 Trivy 进行安全扫描
+        docker run --rm -v /var/run/docker.sock:/var/run/docker.sock \
+          aquasec/trivy image adguardian-web:test
+        
+    - name: Test summary
+      if: always()
+      run: |
+        echo "=== Docker Build Test Summary ==="
+        echo "Build status: ${{ job.status }}"
+        echo "Image size: $(docker images adguardian-web:test --format 'table {{.Size}}')"

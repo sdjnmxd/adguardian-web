@@ -70,9 +70,9 @@ main() {
     # Display configuration information
     show_config
     
-    # Start AdGuardian-Term
-    echo "🔄 Starting AdGuardian-Term..."
-    exec /usr/local/bin/adguardian
+    # Start ttyd with AdGuardian-Term
+    echo "🔄 Starting ttyd with AdGuardian-Term..."
+    exec ttyd /usr/local/bin/adguardian
 }
 
 # Run main function

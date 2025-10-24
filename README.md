@@ -1,5 +1,9 @@
 # AdGuardian-Term Web Terminal
 
+[![Docker Hub](https://img.shields.io/badge/Docker%20Hub-sdjnmxd%2Fadguardian--web-blue?logo=docker)](https://hub.docker.com/r/sdjnmxd/adguardian-web)
+[![GitHub](https://img.shields.io/badge/GitHub-sdjnmxd%2Fadguardian--web-black?logo=github)](https://github.com/sdjnmxd/adguardian-web)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
+
 > **⚠️ Important Notice**: This is a **third-party project** and is **not officially maintained** by the AdGuardian-Term team. This project provides a web-based interface for AdGuardian-Term using ttyd, but it's maintained independently.
 
 Web-based terminal interface for AdGuard Home monitoring using ttyd and AdGuardian-Term. This project wraps the excellent [AdGuardian-Term](https://github.com/Lissy93/AdGuardian-Term) in a Docker container with ttyd to provide web access through your browser.
@@ -31,6 +35,9 @@ This is essentially a Docker wrapper that:
 
 ### Using Docker Hub Image
 
+> **📦 Docker Hub**: [sdjnmxd/adguardian-web](https://hub.docker.com/r/sdjnmxd/adguardian-web)  
+> **📚 Source Code**: [GitHub Repository](https://github.com/sdjnmxd/adguardian-web)
+
 ```bash
 docker run -d \
   -p 7681:7681 \
@@ -42,6 +49,8 @@ docker run -d \
 ```
 
 ### Local Build
+
+> **📚 Source Code**: [GitHub Repository](https://github.com/sdjnmxd/adguardian-web)
 
 ```bash
 # Clone repository
@@ -158,3 +167,10 @@ Issues and Pull Requests are welcome! Please make sure to:
 - [AdGuardian-Term](https://github.com/Lissy93/AdGuardian-Term) - The original terminal-based AdGuard monitoring tool
 - [ttyd](https://github.com/tsl0922/ttyd) - Web-based terminal that powers this project
 - [AdGuard Home](https://github.com/AdguardTeam/AdGuardHome) - The DNS server this tool monitors
+
+## Links & Resources
+
+- **🐳 Docker Hub**: [sdjnmxd/adguardian-web](https://hub.docker.com/r/sdjnmxd/adguardian-web)
+- **📚 GitHub Repository**: [sdjnmxd/adguardian-web](https://github.com/sdjnmxd/adguardian-web)
+- **📋 Issues & Support**: [GitHub Issues](https://github.com/sdjnmxd/adguardian-web/issues)
+- **📄 License**: [MIT License](https://opensource.org/licenses/MIT)

@@ -2,3 +2,4 @@ target/
 .github/
 .git/
 Dockerfile
+README.md

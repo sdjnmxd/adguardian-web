@@ -73,7 +73,8 @@ http://localhost:7681
 ### Common Issues
 
 1. **Missing Environment Variables**
-   - The program will automatically detect missing environment variables and prompt for input
+   - The application will automatically detect missing environment variables and display helpful error messages
+   - You'll see a clear list of missing variables and usage examples
    - It's recommended to pre-set all required variables using `-e` parameters
 
 2. **Connection Failed**

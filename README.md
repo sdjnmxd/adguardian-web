@@ -1,12 +1,31 @@
 # AdGuardian-Term Web Terminal
 
-Web-based terminal interface for AdGuard Home monitoring using ttyd and AdGuardian-Term.
+> **⚠️ Important Notice**: This is a **third-party project** and is **not officially maintained** by the AdGuardian-Term team. This project provides a web-based interface for AdGuardian-Term using ttyd, but it's maintained independently.
+
+Web-based terminal interface for AdGuard Home monitoring using ttyd and AdGuardian-Term. This project wraps the excellent [AdGuardian-Term](https://github.com/Lissy93/AdGuardian-Term) in a Docker container with ttyd to provide web access through your browser.
+
+### What This Project Does
+
+This is essentially a Docker wrapper that:
+1. **Packages AdGuardian-Term**: Downloads the latest AdGuardian-Term binary
+2. **Adds Web Interface**: Uses ttyd to provide web terminal access
+3. **Simplifies Deployment**: One Docker command to get everything running
+4. **Handles Configuration**: Smart error messages and environment variable validation
+
+### Why Use This Instead of Building Yourself?
+
+- **No Build Required**: Pre-built image available on Docker Hub
+- **Always Updated**: Uses the latest AdGuardian-Term release
+- **Optimized**: Lightweight Ubuntu base with minimal dependencies
+- **Secure**: Runs as non-root user with health checks
+- **User-Friendly**: Clear error messages and configuration guidance
 
 ## Features
 
 - 🌐 **Web Terminal Interface**: Access AdGuardian-Term through your browser
 - 🚀 **Quick Deployment**: One-click deployment with Docker
 - 🔒 **Secure Operation**: Runs as non-root user
+- 📦 **Pre-built Image**: Available on Docker Hub, no building required
 
 ## Quick Start
 
@@ -82,15 +101,60 @@ http://localhost:7681
    - Verify IP address and port configuration
    - Confirm username and password are correct
 
+3. **Web Interface Not Loading**
+   - Ensure port 7681 is not blocked by firewall
+   - Check if another service is using port 7681
+   - Try accessing `http://localhost:7681` (not https)
+
+4. **Container Keeps Restarting**
+   - Check container logs: `docker logs <container_name>`
+   - Verify all required environment variables are set
+   - Ensure AdGuard Home server is reachable from the container
+
+5. **Permission Issues**
+   - The container runs as non-root user for security
+   - If you need to modify files, use `docker exec -it <container_name> /bin/bash`
+
+### Getting Help
+
+- **Docker Issues**: Check [Docker documentation](https://docs.docker.com/)
+- **AdGuard Home Issues**: Visit [AdGuard Home documentation](https://github.com/AdguardTeam/AdGuardHome)
+- **This Project Issues**: Create an issue in this repository
+- **AdGuardian-Term Issues**: Create an issue in the [official repository](https://github.com/Lissy93/AdGuardian-Term)
+
 ## License
 
 This project is open source under the MIT License.
 
-## Contributing
+## Support & Issue Reporting
 
-Issues and Pull Requests are welcome!
+### 🐛 Where to Report Issues
+
+**Report issues to THIS repository (`sdjnmxd/adguardian-web`) if:**
+- Docker container fails to start
+- Web interface doesn't load
+- Environment variable configuration problems
+- ttyd-related issues
+- Docker image build problems
+- This project's documentation issues
+
+**Report issues to the OFFICIAL repository ([Lissy93/AdGuardian-Term](https://github.com/Lissy93/AdGuardian-Term)) if:**
+- AdGuardian-Term application crashes
+- AdGuard Home API connection issues
+- Data display problems in the terminal interface
+- Core AdGuardian-Term functionality bugs
+- Feature requests for AdGuardian-Term itself
+
+### 🤝 Contributing
+
+Issues and Pull Requests are welcome! Please make sure to:
+- Check existing issues before creating new ones
+- Provide clear reproduction steps for bugs
+- Include your Docker version and system information
+- Test your changes thoroughly
 
 ## Related Projects
 
-- [AdGuardian-Term](https://github.com/Lissy93/AdGuardian-Term) - Terminal-based AdGuard monitoring tool
-- [ttyd](https://github.com/tsl0922/ttyd) - Web-based terminal
+- [AdGuardian-Term](https://github.com/Lissy93/AdGuardian-Term) - The original terminal-based AdGuard monitoring tool
+- [ttyd](https://github.com/tsl0922/ttyd) - Web-based terminal that powers this project
+- [AdGuard Home](https://github.com/AdguardTeam/AdGuardHome) - The DNS server this tool monitors

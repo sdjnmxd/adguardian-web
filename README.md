@@ -19,7 +19,7 @@ docker run -d \
   -e ADGUARD_PORT=80 \
   -e ADGUARD_USERNAME=admin \
   -e ADGUARD_PASSWORD=your_password \
-  adguardian-web
+  sdjnmxd/adguardian-web
 ```
 
 ### Local Build

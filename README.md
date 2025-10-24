@@ -19,18 +19,18 @@ docker run -d \
   -e ADGUARD_PORT=80 \
   -e ADGUARD_USERNAME=admin \
   -e ADGUARD_PASSWORD=your_password \
-  adguardian-ttyd
+  adguardian-web
 ```
 
 ### Local Build
 
 ```bash
 # Clone repository
-git clone https://github.com/your-username/adguardian-ttyd.git
-cd adguardian-ttyd
+git clone https://github.com/sdjnmxd/adguardian-web.git
+cd adguardian-web
 
 # Build image
-docker build -t adguardian-ttyd .
+docker build -t adguardian-web .
 
 # Run container
 docker run -d \
@@ -39,7 +39,7 @@ docker run -d \
   -e ADGUARD_PORT=80 \
   -e ADGUARD_USERNAME=admin \
   -e ADGUARD_PASSWORD=password \
-  adguardian-ttyd
+  adguardian-web
 ```
 
 ## Environment Variables
